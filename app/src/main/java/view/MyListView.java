@@ -21,18 +21,27 @@ import com.groupfive.www.travel.R;
 public class MyListView extends ListView implements AbsListView.OnScrollListener {
 
     private View footerView;
-    private View headView;
-
     private boolean isLoading = false;
-
     private ListViewScrollListener ListViewScrollListener;
 
- /*   private int headDust;
-    private int preY;
-
-    private Scroller Scroller;
-
-    private int firstVisibleItem ;*/
+/*    final SwipeRefreshLayout mySwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_fresh);
+    // 设置下拉圆圈上的颜色，蓝色、绿色、橙色、红色
+        mySwipeRefreshLayout.setColorSchemeResources(
+    android.R.color.holo_blue_bright,
+    android.R.color.holo_green_light,
+    android.R.color.holo_orange_light,
+    android.R.color.holo_red_light);
+        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mySwipeRefreshLayout.setRefreshing(false);
+                }
+            },2000);
+        }
+    });*/
 
 
     public MyListView(Context context) {
@@ -49,37 +58,11 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
         footerView = ((Activity)context).getLayoutInflater().inflate(R.layout.listview_footer,null);
         footerView.setVisibility(View.GONE);
 
-      //  headView = ((Activity)context).getLayoutInflater().inflate(R.layout.listview_head,null);
-     //   headView.setVisibility(View.GONE);
-
-
-
-    //    this.addHeaderView(headView);
 
         this.addFooterView(footerView);
-
-       // Scroller = new Scroller(context);
-
         this.setOnScrollListener(this);
     }
 
- /*   private void smoothScrollTo(int destY,int time){
-
-        int scrollY = getScrollY();
-        int deltaY = destY - scrollY;
-
-        Scroller.startScroll(0,scrollY,0,deltaY,time);
-
-        invalidate();
-    }
-
-    @Override
-    public void computeScroll() {
-        if(Scroller.computeScrollOffset()){
-            scrollTo(Scroller.getCurrX(),Scroller.getCurrY());
-            postInvalidate();
-        }
-    }*/
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
@@ -103,15 +86,6 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
     @Override
     public void onScroll(AbsListView liview, int firstVisibleItem, int visibleItemCount,
                          int totalItemCount) {
-      //  this.firstVisibleItem = firstVisibleItem;
-       // Log.d("TAG","fir"+firstVisibleItem+" ");
-     //   Log.d("TAG","top : "+liview.getChildAt(0).getTop()+"");
-
-
-
-
-
-
         //滚到最后一行
         if(firstVisibleItem + visibleItemCount == totalItemCount && totalItemCount > 0){
             //判断是否正在加载

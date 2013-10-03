@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RatingBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import view.MyListView;
 import view.PullToRefreshListView;
+import view.ScoreView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ScoreView ScoreView = findViewById(R.id.score_view);
+        final RatingBar RatingBar = findViewById(R.id.ratingBar);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ScoreView.setScore(4.6f);RatingBar.setRating(4.7f);
+            }
+        },1000);
+
+/*
 
         final SwipeRefreshLayout mySwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_fresh);
         // 设置下拉圆圈上的颜色，蓝色、绿色、橙色、红色
@@ -39,13 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 },2000);
             }
         });
-   /*     PullToRefreshListView PullToRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
+   */
+/*     PullToRefreshListView PullToRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
         final List list = new ArrayList();
         for (int i=0;i<20;++i)
             list.add("ke"+i);
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        PullToRefreshListView.setAdapter(adapter);*/
+        PullToRefreshListView.setAdapter(adapter);*//*
+
 
         MyListView ListView = (MyListView) findViewById(R.id.list);
 
@@ -72,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+*/
+
+
 
 
 
