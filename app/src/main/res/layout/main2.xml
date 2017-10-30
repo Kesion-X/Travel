@@ -17,11 +17,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <view.MyListView
+    <view.PullToRefreshListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </view.MyListView>
+    </view.PullToRefreshListView>
 
 </LinearLayout>
