@@ -27,12 +27,12 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
 
     private ListViewScrollListener ListViewScrollListener;
 
-    private int headDust;
+ /*   private int headDust;
     private int preY;
 
     private Scroller Scroller;
 
-    private int firstVisibleItem ;
+    private int firstVisibleItem ;*/
 
 
     public MyListView(Context context) {
@@ -49,21 +49,21 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
         footerView = ((Activity)context).getLayoutInflater().inflate(R.layout.listview_footer,null);
         footerView.setVisibility(View.GONE);
 
-        headView = ((Activity)context).getLayoutInflater().inflate(R.layout.listview_head,null);
+      //  headView = ((Activity)context).getLayoutInflater().inflate(R.layout.listview_head,null);
      //   headView.setVisibility(View.GONE);
 
 
 
-        this.addHeaderView(headView);
+    //    this.addHeaderView(headView);
 
         this.addFooterView(footerView);
 
-        Scroller = new Scroller(context);
+       // Scroller = new Scroller(context);
 
         this.setOnScrollListener(this);
     }
 
-    private void smoothScrollTo(int destY,int time){
+ /*   private void smoothScrollTo(int destY,int time){
 
         int scrollY = getScrollY();
         int deltaY = destY - scrollY;
@@ -79,96 +79,16 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
             scrollTo(Scroller.getCurrX(),Scroller.getCurrY());
             postInvalidate();
         }
-    }
+    }*/
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        this.scrollTo(0,headView.getHeight());
+       // this.scrollTo(0,headView.getHeight());
     }
 
 
 
-    private float preClickY;
-
-    int d;
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-
-        int action = ev.getActionMasked();
-
-        switch (action){
-
-            case MotionEvent.ACTION_DOWN:
-
-              //  d = (int) (ev.getY() - preClickY);
-              //  Log.d("TAG","click"+preClickY+" "+ ev.getY());
-                preClickY = ev.getY();
-
-
-              //  preClickY = ev.getY();
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-               // preClickY = ev.getY();
-                //int d2 = (int) (ev.getY() - preClickY);
-                //preClickY = ev.getY();
-
-                /*  if((-getChildAt(0).getTop())>=0)
-                    break;
-
-                if(getChildCount()>0){
-                    Log.d("TAG","list top : "+getChildAt(0).getTop()+" "+firstVisibleItem);
-
-                    if(firstVisibleItem==0&&getChildAt(0).getTop()<=0){
-                        smoothScrollTo(headView.getHeight(),200);
-                    }
-
-                }
-*/
-                break;
-
-            case MotionEvent.ACTION_UP:
-
-                 d = (int) (ev.getY() - preClickY);
-              //  Log.d("TAG","click"+preClickY+" "+ ev.getY());
-                preClickY = ev.getY();
-              //  Log.d("TAG","d"+d);
-                Log.d("TAG","list top : "+getChildAt(0).getTop()+" "+firstVisibleItem);
-                if(getChildCount()>0){
-                    //Log.d("TAG","list top : "+getChildAt(0).getTop()+" "+firstVisibleItem);
-
-                    if(firstVisibleItem==0&&getChildAt(0).getTop()<=0){
-                        if(d>0)
-                        smoothScrollTo(headView.getHeight(),d);
-                    }
-
-                }
-                break;
-
-        }
-
-
-/*
-
-        Log.d("TAG","head"+headView.getY());
-        int headY = (int) headView.getY();
-        if(this.firstVisibleItem==0){
-
-
-            int d = preY-headY;
-            smoothScrollTo(headY,d);
-          //  this.scrollBy(0,-d);
-            preY = headY;
-        }
-*/
-
-
-
-
-
-        return super.onTouchEvent(ev);
-    }
 
     @Override
     public void onScrollStateChanged(AbsListView absListView, int state) {
@@ -183,7 +103,7 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
     @Override
     public void onScroll(AbsListView liview, int firstVisibleItem, int visibleItemCount,
                          int totalItemCount) {
-        this.firstVisibleItem = firstVisibleItem;
+      //  this.firstVisibleItem = firstVisibleItem;
        // Log.d("TAG","fir"+firstVisibleItem+" ");
      //   Log.d("TAG","top : "+liview.getChildAt(0).getTop()+"");
 

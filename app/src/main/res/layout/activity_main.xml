@@ -17,11 +17,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <view.MyListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_fresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    </view.MyListView>
+        <view.MyListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </view.MyListView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

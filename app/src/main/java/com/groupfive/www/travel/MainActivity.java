@@ -1,6 +1,7 @@
 package com.groupfive.www.travel;
 
 import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final SwipeRefreshLayout mySwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_fresh);
+        // 设置下拉圆圈上的颜色，蓝色、绿色、橙色、红色
+        mySwipeRefreshLayout.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mySwipeRefreshLayout.setRefreshing(false);
+                    }
+                },2000);
+            }
+        });
    /*     PullToRefreshListView PullToRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
         final List list = new ArrayList();
         for (int i=0;i<20;++i)
