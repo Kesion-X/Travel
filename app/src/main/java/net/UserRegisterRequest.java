@@ -21,12 +21,12 @@ public interface UserRegisterRequest {
         /**
          * 注册成功
          */
-        public void registerSuccess();
+         void registerSuccess();
 
         /**
          *注册失败
          * @param message 失败信息
          */
-        public void registerFall(String message);
+        void registerFall(String message);
     }
 }
