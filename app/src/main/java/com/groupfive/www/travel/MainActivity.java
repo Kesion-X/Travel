@@ -23,14 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ScoreView ScoreView = findViewById(R.id.score_view);
-        final RatingBar RatingBar = findViewById(R.id.ratingBar);
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ScoreView.setScore(4.6f);RatingBar.setRating(4.7f);
-            }
-        },1000);
+
 
 /*
 
