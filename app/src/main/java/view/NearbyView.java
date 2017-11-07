@@ -10,7 +10,7 @@ public interface NearbyView {
 
     /**
      * 刷新列表成功
-     * @param clonelist
+     * @param clonelist 请拷贝一份数据
      */
     void refreshListSuccess(List clonelist);
 
@@ -23,12 +23,11 @@ public interface NearbyView {
 
     /**
      * 加载更多成功
-     * @param list
      */
-    void upLoadListSuccess(List list);
+    void upLoadListSuccess();
 
     /**
-     * 加载更多成功
+     * 加载更多失败
      * @param message
      */
     void upLoadListFall(String  message);
