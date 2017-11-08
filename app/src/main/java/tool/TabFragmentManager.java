@@ -4,17 +4,19 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import overlayutil.OverlayManager;
+
 /**
  * Created by Administrator on 2017/10/30.
  */
 
 public class TabFragmentManager {
 
-    //搴曢儴鏍囬
+    //底部标题
     private List<String> TabStrList = null;
-    //搴曢儴榛樿鍥剧墖
+    //底部默认图片
     private List<Integer> defaultDrawableIdList = null;
-    //搴曢儴閫夋嫨鍥剧墖
+    //底部选择图片
     private List<Integer> choiceDrawableIdList = null;
     //fragment
     private List<Class> fragmentList = null;
@@ -31,7 +33,7 @@ public class TabFragmentManager {
     }
 
     /**
-     * 鑾峰彇TabFragmentManager瀵硅薄
+     * 获取TabFragmentManager对象
      * @return
      */
     public static TabFragmentManager getTabFragmentManager(){
@@ -47,6 +49,13 @@ public class TabFragmentManager {
 
         }
         return mTabFragmentManager;
+    }
+    
+    public void clear(){
+    	TabStrList.clear();
+    	defaultDrawableIdList.clear();
+    	choiceDrawableIdList.clear();
+    	fragmentList.clear();
     }
 
     public List<String> getTabStrList() {
@@ -68,4 +77,6 @@ public class TabFragmentManager {
     public static TabFragmentManager getmTabFragmentManager() {
         return mTabFragmentManager;
     }
+
+
 }

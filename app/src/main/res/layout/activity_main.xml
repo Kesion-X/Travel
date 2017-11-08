@@ -1,30 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context="com.groupfive.www.travel.MainActivity">
-
-
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    tools:context="com.groupfive.www.travel.MainActivity"
+    android:orientation="vertical"
+     >
+<LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+	    <ImageView 
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/changyou"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
+ 
+  <com.groupfive.www.travel.LineEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="账号"
+        android:textSize="20sp"
+        android:singleLine="true" 
+        android:textColor="#000000"
+        android:textColorHint="#ccbfbfbf"
+        android:drawableLeft="@drawable/zhanghao"
+        android:background="@null"/>
+        <com.groupfive.www.travel.LineEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="密码"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:singleLine="true" 
+        android:textColor="#000000"
+         android:textColorHint="#ccbfbfbf"
+         android:drawableLeft="@drawable/mima"
+        android:background="@null"/>
+        <Button
+            android:id="@+id/btn_sign_in" 
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="登录"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_ui"
+            android:padding="0dp"/>
+        <RelativeLayout 
+        android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:layout_marginTop="10dp"
+    	android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/forgetpassword" 
+        		android:layout_height="wrap_content"
+        		android:layout_width="wrap_content"
+        		android:text="忘记密码？"
+        		android:clickable="true"
+        		android:textSize="15sp"
+        		android:layout_marginTop="8dp"
+        		android:layout_alignParentLeft="true"
+        		android:textColor="#A8A8B7"/>
+    		 <TextView
+    		    android:id="@+id/register"  
+        		android:layout_height="wrap_content"
+        		android:layout_width="wrap_content"
+        		android:text="新用户注册"
+        		android:clickable="true"
+        		android:textSize="15sp"
+        		android:layout_marginTop="8dp"
+        		android:textColor="#A8A8B7"
+        		android:layout_alignParentRight="true"
+        		android:layout_centerInParent="true"/>
+        </RelativeLayout>
+</LinearLayout>         
+<LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:text="————第三方登录————"
+        android:layout_gravity="center"
+        android:textColor="#cc01BF9D" />
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
 
-        android:layout_alignParentBottom="true"
-        >
-        <include layout="@layout/emoji_view_layout" />
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             >
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/weiboicon" />
 
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"               
+                android:src="@drawable/qqicon" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>    
 
-
-
-
-</RelativeLayout>
+</LinearLayout>

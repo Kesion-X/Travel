@@ -42,7 +42,7 @@ public interface NearByListRequest {
          * 刷新失败
          * @param message
          */
-        void nearByListRefreshSuccess(String message);
+        void nearByListRefreshFall(String message);
 
         /**
          * 加载更多成功
@@ -52,7 +52,7 @@ public interface NearByListRequest {
         /**
          * 加载更多失败
          */
-        void nearByListLoadingMoreFall();
+        void nearByListLoadingMoreFall(String message);
     }
 
 }

@@ -1,140 +1,85 @@
 package com.groupfive.www.travel;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import view.UserLoginView;
+import view.UserResigeView;
+
+
+
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ListView;
-import android.widget.RatingBar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import adapter.EmojiGridViewAdapter;
-import tool.EmojiHashMapUtil;
-import view.EmojiView;
-import view.MyListView;
-import view.PullToRefreshListView;
-import view.ScoreView;
-
-public class MainActivity extends AppCompatActivity {
-
-    Handler handler = new Handler();
-    EmojiView emojiView;
-
+public class MainActivity extends Activity implements UserLoginView,UserResigeView{
+	private TextView register;
+	private View v1,v2;
+	
+	AlertDialog ad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); 
+	      //ȡ��״̬��
+	      //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+	      //WindowManager.LayoutParams.FLAG_FULLSCREEN); 
         setContentView(R.layout.activity_main);
-        EmojiHashMapUtil.getEmojiHashMapUtil();
-        emojiView = new EmojiView(this,handler);
-        //getLayoutInflater().in
-/*
-        TextView tv = findViewById(R.id.tv);
-      //  tv.setTextSize();
-
-        //CharSequence mCharSequence
-        SpannableString mySpannableString = new SpannableString("dwa[dp]adwad");
-
-        int size = ( int) (tv.getTextSize()*1.5);
-        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_launcher);
-        Bitmap scaleBitmap = Bitmap.createScaledBitmap(bitmap, size, size, true);
-        ImageSpan span = new ImageSpan(this, scaleBitmap);
-        mySpannableString.setSpan(span, 3, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE );
-
-        tv.setText(mySpannableString);
-
-
-        GridView mgride = findViewById(R.id.gv);
-
-        mgride.setAdapter(new EmojiGridViewAdapter(getLayoutInflater(), EmojiHashMapUtil.getEmojiHashMapUtil().getEmojiList()));*/
-
-
-
-
-
-
-
-
-
-
- //       EditText EditText = new EditText(this);
-
-        //   TextView.setText();
-
-
-
-
-/*
-
-        final SwipeRefreshLayout mySwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_fresh);
-        // 设置下拉圆圈上的颜色，蓝色、绿色、橙色、红色
-        mySwipeRefreshLayout.setColorSchemeResources(
-                android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mySwipeRefreshLayout.setRefreshing(false);
-                    }
-                },2000);
-            }
+        
+        register=(TextView)findViewById(R.id.register);
+        
+        register.setOnClickListener(new OnClickListener() {		
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				AlertDialog.Builder ab=new AlertDialog.Builder(MainActivity.this);			
+				v2=LayoutInflater.from(MainActivity.this).inflate(R.layout.register,null);			
+				ab.setView(v2);
+				ad=ab.create();
+				Window window = ad.getWindow();			
+				window.setGravity(Gravity.CENTER);
+			    WindowManager.LayoutParams lp = window.getAttributes();
+			    lp.y =0;
+			    lp.alpha = 0.9f;    
+			    window.setAttributes(lp); 
+				ad.setCancelable(true);
+				ad.setCanceledOnTouchOutside(true);
+				ad.show();
+			}
         });
-   */
-/*     PullToRefreshListView PullToRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
-        final List list = new ArrayList();
-        for (int i=0;i<20;++i)
-            list.add("ke"+i);
-
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        PullToRefreshListView.setAdapter(adapter);*//*
-
-
-        MyListView ListView = (MyListView) findViewById(R.id.list);
-
-        final List list = new ArrayList();
-
-        for (int i=0;i<20;++i)
-            list.add("ke"+i);
-
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        ListView.setAdapter(adapter);
-
-        ListView.setListViewScrollListener(new MyListView.ListViewScrollListener() {
-            @Override
-            public void scrollLast() {
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int i=21;i<40;++i)
-                            list.add("ke"+i);
-                       // isload = false;
-                        adapter.notifyDataSetChanged();
-                    }
-                },2000);
-
-            }
-        });
-
-*/
-
-
-
-
-
     }
+    
+
+	@Override
+	public void loginSuccess() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void loginFall() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void registerSuccess() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void registerFall(String message) {
+		// TODO Auto-generated method stub
+		ad.dismiss();
+	}
 }

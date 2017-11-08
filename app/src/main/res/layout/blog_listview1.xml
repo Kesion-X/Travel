@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp">
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="作者XXXX"
+        android:textSize="15sp"
+        android:textColor="#737373"/>
+</LinearLayout>  
+  
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_margin="10dp">
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最美红叶季！福建最佳观赏地，错过了再等一年！"      
+		android:maxEms="8"
+		android:textSize="18sp"
+        android:layout_weight="1"/>
+    <ImageView 
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fuzhou"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="30dp"
+        android:layout_weight="1"/>
+</LinearLayout>  
+
+</LinearLayout>

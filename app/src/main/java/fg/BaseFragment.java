@@ -19,6 +19,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
 
     }
@@ -32,7 +33,7 @@ public abstract class BaseFragment extends Fragment {
     private View getRootView(LayoutInflater inflater) {
         if(rootView==null){
             rootView = InitView(inflater);
-            InitFindView();
+            InitFindView(rootView);
         }
         ViewGroup viewGroup = (ViewGroup) rootView.getParent();
         if(viewGroup!=null) {
@@ -53,6 +54,6 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public abstract View InitView(LayoutInflater inflate);
-    public abstract void InitFindView();
+    public abstract void InitFindView(View rootView);
     public abstract void InitData();
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+  <TextView 
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="填写信息并注册"
+      android:textSize="25sp"
+      android:layout_marginTop="15dp"
+      android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+  <TextView 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="*密码由8-16位数字、字母或符号组成"
+      android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+  <TextView 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="两次密码必须一致"
+      android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>  
+<com.groupfive.www.travel.LineEditText
+    android:id="@+id/register_name" 
+    android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="用户名"
+        android:textSize="18sp"
+        android:singleLine="true" 
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+<com.groupfive.www.travel.LineEditText
+    android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="密码"
+        android:textSize="18sp"
+        android:singleLine="true" 
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+<com.groupfive.www.travel.LineEditText
+    android:id="@+id/register_repassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="确认密码"
+        android:textSize="18sp"
+        android:singleLine="true" 
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+<com.groupfive.www.travel.LineEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="手机号"
+        android:textSize="18sp"
+        android:singleLine="true" 
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+<com.groupfive.www.travel.LineEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="邮箱"
+        android:textSize="18sp"
+        android:singleLine="true" 
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+
+<Button
+    android:id="@+id/btn_register" 
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="注册"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#ffffff"
+            android:background="#8000a0ff"
+            android:padding="0dp"
+            android:layout_marginLeft="15dp"
+    		android:layout_marginRight="15dp"
+    		android:layout_marginBottom="30dp"/>
+</LinearLayout>

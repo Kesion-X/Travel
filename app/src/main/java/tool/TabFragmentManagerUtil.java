@@ -12,7 +12,8 @@ public abstract class TabFragmentManagerUtil {
 
 
     public TabFragmentManagerUtil(){
-        mTabFragmentManager = TabFragmentManager.getmTabFragmentManager();
+        mTabFragmentManager = TabFragmentManager.getTabFragmentManager();
+        mTabFragmentManager.clear();
         initTabStrList(mTabFragmentManager.getTabStrList());
         initDefaultDrawableIdList(mTabFragmentManager.getDefaultDrawableIdList());
         initChoiceDrawableIdList(mTabFragmentManager.getChoiceDrawableIdList());

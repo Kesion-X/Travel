@@ -5,11 +5,20 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.baidu.mapapi.SDKInitializer;
+
 import java.util.ArrayList;
 import java.util.List;
+
+
+import fg.BusLineFragment;
+import fg.HomeFragment;
+import fg.NearByFragment;
+import fg.UserInFoFragment;
 
 import tool.TabFragmentManagerUtil;
 
@@ -17,9 +26,9 @@ import tool.TabFragmentManagerUtil;
 public class TabHostActivity extends FragmentActivity {
 
     private FragmentTabHost fragmentTabHost;
-    //底部标题
+    //�ײ�����
     private List<String> TabStr= null;
-    //默认图标
+    //Ĭ��ͼ��
     private List<Integer> DrawableId = null;
     //fragment list
     private List<Class> FragmentArray = null;
@@ -27,12 +36,18 @@ public class TabHostActivity extends FragmentActivity {
     private   TabFragmentManagerUtil tabFragmentManagerUtil = new TabFragmentManagerUtil() {
         @Override
         public void initTabStrList(List<String> list) {
-
+        	list.add("首页");
+        	list.add("附近");
+        	list.add("线路");
+        	list.add("我的");
         }
 
         @Override
         public void initDefaultDrawableIdList(List<Integer> list) {
-
+        	list.add(R.drawable.tab_home_selector);
+        	list.add(R.drawable.tab_nearby_selector);
+        	list.add(R.drawable.tab_busline_selector);
+        	list.add(R.drawable.tab_userinfo_selector);
         }
 
         @Override
@@ -42,7 +57,10 @@ public class TabHostActivity extends FragmentActivity {
 
         @Override
         public void initFragmentList(List<Class> list) {
-
+        	list.add(HomeFragment.class);
+        	list.add(NearByFragment.class);
+        	list.add(BusLineFragment.class);
+        	list.add(UserInFoFragment.class);
         }
     };
 
@@ -50,6 +68,9 @@ public class TabHostActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SDKInitializer.initialize(getApplicationContext());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.tab_layout);
         InitData();
         InitTabHost();
@@ -69,7 +90,7 @@ public class TabHostActivity extends FragmentActivity {
 
 
     /**
-     *初始化fragmentTabHost
+     *��ʼ��fragmentTabHost
      **/
     private void InitTabHost() {
         fragmentTabHost= (FragmentTabHost) findViewById(R.id.tab_host);
